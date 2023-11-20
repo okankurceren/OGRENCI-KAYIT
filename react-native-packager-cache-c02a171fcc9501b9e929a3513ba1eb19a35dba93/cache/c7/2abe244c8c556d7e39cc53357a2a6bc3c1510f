@@ -1,0 +1,30 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _redux = require('redux');
+
+var _KimlikDogrulamaReducers = require('./KimlikDogrulamaReducers');
+
+var _KimlikDogrulamaReducers2 = _interopRequireDefault(_KimlikDogrulamaReducers);
+
+var _StudentCreateReducers = require('./StudentCreateReducers');
+
+var _StudentCreateReducers2 = _interopRequireDefault(_StudentCreateReducers);
+
+var _StudentDataReducers = require('./StudentDataReducers');
+
+var _StudentDataReducers2 = _interopRequireDefault(_StudentDataReducers);
+
+var _StudentUpdateReducers = require('./StudentUpdateReducers');
+
+var _StudentUpdateReducers2 = _interopRequireDefault(_StudentUpdateReducers);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _redux.combineReducers)({
+  kimlikdogrulamaResponse: _KimlikDogrulamaReducers2.default,
+  studentsListResponse: _StudentCreateReducers2.default,
+  studentDataResponse: _StudentDataReducers2.default,
+  studentUpdateReducers: _StudentUpdateReducers2.default
+});

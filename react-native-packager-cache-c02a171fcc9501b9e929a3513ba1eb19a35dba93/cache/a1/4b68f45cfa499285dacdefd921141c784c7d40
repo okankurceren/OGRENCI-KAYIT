@@ -1,0 +1,41 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.studentCreate = exports.studentChange = undefined;
+
+var _firebase = require('firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+var _types = require('./types');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var studentChange = exports.studentChange = function studentChange(_ref) {
+  var props = _ref.props,
+      value = _ref.value;
+
+  return function (dispatch) {
+    dispatch({
+      type: _types.STUDENT_CHANGED,
+      payload: { props: props, value: value }
+    });
+  };
+};
+
+var studentCreate = exports.studentCreate = function studentCreate(_ref2) {
+  var isim = _ref2.isim,
+      soyisim = _ref2.soyisim,
+      ogrencinumara = _ref2.ogrencinumara,
+      sube = _ref2.sube;
+
+  var _firebase$auth = _firebase2.default.auth(),
+      currentUser = _firebase$auth.currentUser;
+
+  return function (dispatch) {
+    dispatch({ type: _types.CREATE_REQUEST });
+    _firebase2.default.database().ref('/kullanicilar/' + currentUser.uid + '/ogrenciler').push({ isim: isim, soyisim: soyisim, ogrencinumara: ogrencinumara, sube: sube }).then(function () {
+      dispatch({ type: _types.CREATE_REQUEST_SUCCESS });
+    });
+  };
+};

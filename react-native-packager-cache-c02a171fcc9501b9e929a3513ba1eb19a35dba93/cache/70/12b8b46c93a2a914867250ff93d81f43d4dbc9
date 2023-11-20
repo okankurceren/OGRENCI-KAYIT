@@ -1,0 +1,29 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _types = require('../actions/types');
+
+var INITIAL_STATE = {
+  loadingUpdate: false,
+  loadingDelete: false
+};
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _types.UPDATE_REQUEST:
+      return { loadingUpdate: true };
+    case _types.UPDATE_REQUEST_SUCCESS:
+      return INITIAL_STATE;
+    case _types.DELETE_REQUEST:
+      return { loadingDelete: true };
+    case _types.DELETE_REQUEST_SUCCESS:
+      return INITIAL_STATE;
+    default:
+      return state;
+
+  }
+};

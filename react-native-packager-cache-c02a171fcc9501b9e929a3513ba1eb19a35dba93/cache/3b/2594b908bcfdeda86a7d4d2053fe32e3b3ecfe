@@ -1,0 +1,27 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _kimlikdogrulamaactions = require('./kimlikdogrulamaactions');
+
+Object.keys(_kimlikdogrulamaactions).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _kimlikdogrulamaactions[key];
+    }
+  });
+});
+
+var _StudentAction = require('./StudentAction');
+
+Object.keys(_StudentAction).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _StudentAction[key];
+    }
+  });
+});

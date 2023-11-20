@@ -1,0 +1,221 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/baran/Projects/studentproject/src/components/LoginForm.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _actions = require('../actions');
+
+var _ortak = require('../ortak');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  LoginForm: {
+    displayName: 'LoginForm'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/Users/baran/Projects/studentproject/src/components/LoginForm.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var LoginForm = _wrapComponent('LoginForm')(function (_Component) {
+  _inherits(LoginForm, _Component);
+
+  function LoginForm() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, LoginForm);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LoginForm.__proto__ || Object.getPrototypeOf(LoginForm)).call.apply(_ref, [this].concat(args))), _this), _this.state = { email: '', password: '', loading: false }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(LoginForm, [{
+    key: 'clickLogin',
+    value: function clickLogin() {
+      var _props = this.props,
+          email = _props.email,
+          password = _props.password;
+
+      this.props.loginUser({ email: email, password: password });
+    }
+  }, {
+    key: 'loginSucces',
+    value: function loginSucces() {
+      console.log('Başarılı');
+      this.setState({ loading: false });
+    }
+  }, {
+    key: 'loginFail',
+    value: function loginFail() {
+      console.log('Başarısız');
+      this.setState({ loading: false });
+      _reactNative.Alert.alert('Mesaj', 'Kullanıcı adı veya şifreniz hatalı', [{ text: 'Tamam', onPress: function onPress() {
+          return null;
+        } }]);
+    }
+  }, {
+    key: 'renderButton',
+    value: function renderButton() {
+      if (!this.props.loading) {
+        return _react3.default.createElement(
+          _ortak.Button,
+          { onPress: this.clickLogin.bind(this), __source: {
+              fileName: _jsxFileName,
+              lineNumber: 35
+            }
+          },
+          ' G\u0130R\u0130\u015E '
+        );
+      }
+      return _react3.default.createElement(_ortak.Spinner, { size: 'small', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var inputStyle = styles.inputStyle;
+
+      return _react3.default.createElement(
+        _reactNative.View,
+        { style: { flex: 1, backgroundColor: 'white' }, __source: {
+            fileName: _jsxFileName,
+            lineNumber: 45
+          }
+        },
+        _react3.default.createElement(
+          _ortak.Card,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 46
+            }
+          },
+          _react3.default.createElement(
+            _ortak.CardSection,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 49
+              }
+            },
+            _react3.default.createElement(_reactNative.TextInput, {
+              placeholder: 'E-mail',
+              style: inputStyle,
+              value: this.props.email,
+              onChangeText: function onChangeText(email) {
+                return _this2.props.emailChanged(email);
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 50
+              }
+            })
+          ),
+          _react3.default.createElement(
+            _ortak.CardSection,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 58
+              }
+            },
+            _react3.default.createElement(_reactNative.TextInput, {
+              secureTextEntry: true,
+              placeholder: '\u015Eifre',
+              style: inputStyle,
+              value: this.props.password,
+              onChangeText: function onChangeText(password) {
+                return _this2.props.passwordChanged(password);
+              },
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 59
+              }
+            })
+          ),
+          _react3.default.createElement(
+            _ortak.CardSection,
+            {
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 68
+              }
+            },
+            this.renderButton()
+          )
+        )
+      );
+    }
+  }]);
+
+  return LoginForm;
+}(_react2.Component));
+
+var styles = {
+  inputStyle: {
+    color: '#000',
+    paddingRight: 5,
+    paddingLeft: 5,
+    fontSize: 18,
+    lineHeight: 23,
+    flex: 2
+  }
+
+};
+
+var mapStateProps = function mapStateProps(_ref2) {
+  var kimlikdogrulamaResponse = _ref2.kimlikdogrulamaResponse;
+  var email = kimlikdogrulamaResponse.email,
+      password = kimlikdogrulamaResponse.password,
+      loading = kimlikdogrulamaResponse.loading;
+
+  return {
+    email: 'test@test.com',
+    password: '156230',
+    loading: loading
+  };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateProps, { emailChanged: _actions.emailChanged, passwordChanged: _actions.passwordChanged, loginUser: _actions.loginUser })(LoginForm);

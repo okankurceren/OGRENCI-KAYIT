@@ -1,0 +1,89 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.studentListData = exports.studentDelete = exports.studentUpdate = exports.studentCreate = exports.studentChange = undefined;
+
+var _firebase = require('firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _types = require('./types');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var studentChange = exports.studentChange = function studentChange(_ref) {
+  var props = _ref.props,
+      value = _ref.value;
+
+  return function (dispatch) {
+    dispatch({
+      type: _types.STUDENT_CHANGED,
+      payload: { props: props, value: value }
+    });
+  };
+};
+
+var studentCreate = exports.studentCreate = function studentCreate(_ref2) {
+  var isim = _ref2.isim,
+      soyisim = _ref2.soyisim,
+      ogrencinumara = _ref2.ogrencinumara,
+      sube = _ref2.sube;
+
+  var _firebase$auth = _firebase2.default.auth(),
+      currentUser = _firebase$auth.currentUser;
+
+  return function (dispatch) {
+    dispatch({ type: _types.CREATE_REQUEST });
+    _firebase2.default.database().ref('/kullanicilar/' + currentUser.uid + '/ogrenciler').push({ isim: isim, soyisim: soyisim, ogrencinumara: ogrencinumara, sube: sube }).then(function () {
+      dispatch({ type: _types.CREATE_REQUEST_SUCCESS });
+      _reactNativeRouterFlux.Actions.pop();
+    });
+  };
+};
+
+var studentUpdate = exports.studentUpdate = function studentUpdate(_ref3) {
+  var isim = _ref3.isim,
+      soyisim = _ref3.soyisim,
+      ogrencinumara = _ref3.ogrencinumara,
+      sube = _ref3.sube,
+      uid = _ref3.uid;
+
+  var _firebase$auth2 = _firebase2.default.auth(),
+      currentUser = _firebase$auth2.currentUser;
+
+  return function (dispatch) {
+    dispatch({ type: _types.UPDATE_REQUEST });
+    _firebase2.default.database().ref('/kullanicilar/' + currentUser.uid + '/ogrenciler/' + uid).set({ isim: isim, soyisim: soyisim, ogrencinumara: ogrencinumara, sube: sube }).then(function () {
+      dispatch({ type: _types.UPDATE_REQUEST_SUCCESS });
+      _reactNativeRouterFlux.Actions.pop();
+    });
+  };
+};
+
+var studentDelete = exports.studentDelete = function studentDelete(_ref4) {
+  var uid = _ref4.uid;
+
+  var _firebase$auth3 = _firebase2.default.auth(),
+      currentUser = _firebase$auth3.currentUser;
+
+  return function (dispatch) {
+    dispatch({ type: _types.DELETE_REQUEST });
+    _firebase2.default.database().ref('/kullanicilar/' + currentUser.uid + '/ogrenciler/' + uid).remove().then(function () {
+      dispatch({ type: _types.DELETE_REQUEST_SUCCESS });
+      _reactNativeRouterFlux.Actions.pop();
+    });
+  };
+};
+
+var studentListData = exports.studentListData = function studentListData() {
+  var _firebase$auth4 = _firebase2.default.auth(),
+      currentUser = _firebase$auth4.currentUser;
+
+  return function (dispatch) {
+    _firebase2.default.database().ref('/kullanicilar/' + currentUser.uid + '/ogrenciler').on('value', function (snapshot) {
+      dispatch({ type: _types.STUDENT_LIST_DATA_SUCCESS, payload: snapshot.val() });
+    });
+  };
+};

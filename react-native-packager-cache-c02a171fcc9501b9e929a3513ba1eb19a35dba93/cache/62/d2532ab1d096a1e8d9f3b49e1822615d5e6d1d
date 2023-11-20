@@ -1,0 +1,257 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/baran/Projects/studentproject/src/components/StudentCreate.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _ortak = require('../ortak');
+
+var _actions = require('../actions');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  StudentCreate: {
+    displayName: 'StudentCreate'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/Users/baran/Projects/studentproject/src/components/StudentCreate.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var StudentCreate = _wrapComponent('StudentCreate')(function (_Component) {
+  _inherits(StudentCreate, _Component);
+
+  function StudentCreate() {
+    _classCallCheck(this, StudentCreate);
+
+    return _possibleConstructorReturn(this, (StudentCreate.__proto__ || Object.getPrototypeOf(StudentCreate)).apply(this, arguments));
+  }
+
+  _createClass(StudentCreate, [{
+    key: 'clickSave',
+    value: function clickSave() {
+      var _props = this.props,
+          isim = _props.isim,
+          soyisim = _props.soyisim,
+          ogrencinumara = _props.ogrencinumara,
+          sube = _props.sube;
+
+      this.props.studentCreate({ isim: isim, soyisim: soyisim, ogrencinumara: ogrencinumara, sube: sube });
+    }
+  }, {
+    key: 'renderButton',
+    value: function renderButton() {
+      if (!this.props.loading) {
+        return _react3.default.createElement(
+          _ortak.Button,
+          { onPress: this.clickSave.bind(this), __source: {
+              fileName: _jsxFileName,
+              lineNumber: 17
+            }
+          },
+          ' Kaydet '
+        );
+      }
+      return _react3.default.createElement(_ortak.Spinner, { size: 'small', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      console.log('gelen data' + this.props.student);
+      var inputStyle = styles.inputStyle;
+
+      return _react3.default.createElement(
+        _ortak.Card,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 26
+          }
+        },
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 27
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, {
+            placeholder: '\u0130sim',
+            style: inputStyle,
+            value: this.props.isim,
+            onChangeText: function onChangeText(isim) {
+              return _this2.props.studentChange({ props: 'isim', value: isim });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 36
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, {
+            placeholder: 'Soyisim',
+            style: inputStyle,
+            value: this.props.soyisim,
+            onChangeText: function onChangeText(soyisim) {
+              return _this2.props.studentChange({ props: 'soyisim', value: soyisim });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 37
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 45
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, {
+            placeholder: '\xD6\u011Frenci Numaras\u0131',
+            style: inputStyle,
+            value: this.props.ogrencinumara,
+            onChangeText: function onChangeText(ogrencinumara) {
+              return _this2.props.studentChange({ props: 'ogrencinumara',
+                value: ogrencinumara });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 46
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _reactNative.Text,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 54
+            }
+          },
+          ' \u015Eube '
+        ),
+        _react3.default.createElement(
+          _reactNative.Picker,
+          {
+            selectedValue: this.props.sube,
+            onValueChange: function onValueChange(sube) {
+              return _this2.props.studentChange({ props: 'sube', value: sube });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 55
+            }
+          },
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'A \u015Eubesi', value: 'asube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 59
+            }
+          }),
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'B \u015Eubesi', value: 'bsube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 60
+            }
+          }),
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'C \u015Eubesi', value: 'csube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 61
+            }
+          }),
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'D \u015Eubesi', value: 'dsube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 62
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 64
+            }
+          },
+          this.renderButton()
+        )
+      );
+    }
+  }]);
+
+  return StudentCreate;
+}(_react2.Component));
+
+var styles = {
+  inputStyle: {
+    paddingRight: 5,
+    paddingLeft: 5,
+    fontSize: 18,
+    flex: 1
+  }
+};
+
+var mapToStateProps = function mapToStateProps(_ref) {
+  var studentsListResponse = _ref.studentsListResponse;
+  var isim = studentsListResponse.isim,
+      soyisim = studentsListResponse.soyisim,
+      ogrencinumara = studentsListResponse.ogrencinumara,
+      sube = studentsListResponse.sube,
+      loading = studentsListResponse.loading;
+
+
+  return { isim: isim,
+    soyisim: soyisim,
+    ogrencinumara: ogrencinumara,
+    sube: sube,
+    loading: loading };
+};
+
+exports.default = (0, _reactRedux.connect)(mapToStateProps, { studentChange: _actions.studentChange, studentCreate: _actions.studentCreate })(StudentCreate);

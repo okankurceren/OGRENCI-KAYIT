@@ -1,0 +1,87 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _jsxFileName = '/Users/baran/Projects/studentproject/src/Router.js';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _LoginForm = require('./components/LoginForm');
+
+var _LoginForm2 = _interopRequireDefault(_LoginForm);
+
+var _StudentList = require('./components/StudentList');
+
+var _StudentList2 = _interopRequireDefault(_StudentList);
+
+var _StudentCreate = require('./components/StudentCreate');
+
+var _StudentCreate2 = _interopRequireDefault(_StudentCreate);
+
+var _StudentUpdate = require('./components/StudentUpdate');
+
+var _StudentUpdate2 = _interopRequireDefault(_StudentUpdate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var RouterComponent = function RouterComponent() {
+  return _react2.default.createElement(
+    _reactNativeRouterFlux.Router,
+    {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 10
+      }
+    },
+    _react2.default.createElement(
+      _reactNativeRouterFlux.Stack,
+      { key: 'root', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      },
+      _react2.default.createElement(_reactNativeRouterFlux.Scene, { key: 'loginScreen', component: _LoginForm2.default, title: 'Giris Ekrani', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      }),
+      _react2.default.createElement(_reactNativeRouterFlux.Scene, {
+        onRight: function onRight() {
+          return _reactNativeRouterFlux.Actions.studentCreate();
+        },
+        type: _reactNativeRouterFlux.ActionConst.RESET,
+        rightTitle: 'Yeni',
+        key: 'studentList',
+        component: _StudentList2.default,
+        title: '\xD6\u011Frenci Liste',
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }),
+      _react2.default.createElement(_reactNativeRouterFlux.Scene, {
+        key: 'studentCreate',
+        title: '\xD6\u011Frenci Kayd\u0131',
+        component: _StudentCreate2.default,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21
+        }
+      }),
+      _react2.default.createElement(_reactNativeRouterFlux.Scene, {
+        key: 'studentUpdate',
+        title: '\xD6\u011Frenci G\xFCncelle',
+        component: _StudentUpdate2.default,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26
+        }
+      })
+    )
+  );
+};
+
+exports.default = RouterComponent;

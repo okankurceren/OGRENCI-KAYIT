@@ -1,0 +1,304 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react2 = require('react');
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index = require('./../../node_modules/react-transform-hmr/lib/index.js');
+
+var _index2 = _interopRequireDefault(_index);
+
+var _jsxFileName = '/Users/baran/Projects/studentproject/src/components/StudentUpdate.js';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactNative = require('react-native');
+
+var _reactRedux = require('react-redux');
+
+var _ortak = require('../ortak');
+
+var _actions = require('../actions');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+  StudentUpdate: {
+    displayName: 'StudentUpdate'
+  }
+};
+
+var _node_modulesReactTransformHmrLibIndexJs2 = (0, _index2.default)({
+  filename: '/Users/baran/Projects/studentproject/src/components/StudentUpdate.js',
+  components: _components,
+  locals: [module],
+  imports: [_react3.default]
+});
+
+function _wrapComponent(id) {
+  return function (Component) {
+    return _node_modulesReactTransformHmrLibIndexJs2(Component, id);
+  };
+}
+
+var StudentUpdate = _wrapComponent('StudentUpdate')(function (_Component) {
+  _inherits(StudentUpdate, _Component);
+
+  function StudentUpdate() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, StudentUpdate);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = StudentUpdate.__proto__ || Object.getPrototypeOf(StudentUpdate)).call.apply(_ref, [this].concat(args))), _this), _this.state = { isim: '', soyisim: '', ogrencinumara: '', sube: '' }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(StudentUpdate, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _props$student = this.props.student,
+          isim = _props$student.isim,
+          soyisim = _props$student.soyisim,
+          ogrencinumara = _props$student.ogrencinumara,
+          sube = _props$student.sube;
+
+      this.setState({ isim: isim, soyisim: soyisim, ogrencinumara: ogrencinumara, sube: sube });
+    }
+  }, {
+    key: 'clickUpdate',
+    value: function clickUpdate() {
+      var _state = this.state,
+          isim = _state.isim,
+          soyisim = _state.soyisim,
+          ogrencinumara = _state.ogrencinumara,
+          sube = _state.sube;
+
+      this.props.studentUpdate({ isim: isim, soyisim: soyisim, ogrencinumara: ogrencinumara, sube: sube, uid: this.props.student.uid });
+    }
+  }, {
+    key: 'clickDelete',
+    value: function clickDelete() {
+      this.props.studentDelete({ uid: this.props.student.uid });
+    }
+  }, {
+    key: 'renderButton',
+    value: function renderButton() {
+      if (!this.props.loadingUpdate) {
+        return _react3.default.createElement(
+          _ortak.Button,
+          { onPress: this.clickUpdate.bind(this), __source: {
+              fileName: _jsxFileName,
+              lineNumber: 28
+            }
+          },
+          ' G\xFCncelle '
+        );
+      }
+      return _react3.default.createElement(_ortak.Spinner, { size: 'small', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 30
+        }
+      });
+    }
+  }, {
+    key: 'renderDeleteButton',
+    value: function renderDeleteButton() {
+      if (!this.props.loadingDelete) {
+        return _react3.default.createElement(
+          _ortak.Button,
+          { onPress: this.clickDelete.bind(this), __source: {
+              fileName: _jsxFileName,
+              lineNumber: 35
+            }
+          },
+          ' Sil '
+        );
+      }
+      return _react3.default.createElement(_ortak.Spinner, { size: 'small', __source: {
+          fileName: _jsxFileName,
+          lineNumber: 37
+        }
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this2 = this;
+
+      var inputStyle = styles.inputStyle;
+
+      return _react3.default.createElement(
+        _ortak.Card,
+        {
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 43
+          }
+        },
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 44
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, {
+            placeholder: '\u0130sim',
+            style: inputStyle,
+            value: this.state.isim,
+            onChangeText: function onChangeText(isim) {
+              return _this2.setState({ isim: isim });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 45
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 53
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, {
+            placeholder: 'Soyisim',
+            style: inputStyle,
+            value: this.state.soyisim,
+            onChangeText: function onChangeText(soyisim) {
+              return _this2.setState({ soyisim: soyisim });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 54
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 62
+            }
+          },
+          _react3.default.createElement(_reactNative.TextInput, {
+            placeholder: '\xD6\u011Frenci Numaras\u0131',
+            style: inputStyle,
+            value: this.state.ogrencinumara,
+            onChangeText: function onChangeText(ogrencinumara) {
+              return _this2.setState({ ogrencinumara: ogrencinumara });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 63
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _reactNative.Text,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 70
+            }
+          },
+          ' \u015Eube '
+        ),
+        _react3.default.createElement(
+          _reactNative.Picker,
+          {
+            selectedValue: this.state.sube,
+            onValueChange: function onValueChange(sube) {
+              return _this2.setState({ sube: sube });
+            },
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 71
+            }
+          },
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'A \u015Eubesi', value: 'asube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 75
+            }
+          }),
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'B \u015Eubesi', value: 'bsube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 76
+            }
+          }),
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'C \u015Eubesi', value: 'csube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 77
+            }
+          }),
+          _react3.default.createElement(_reactNative.Picker.Item, { label: 'D \u015Eubesi', value: 'dsube', __source: {
+              fileName: _jsxFileName,
+              lineNumber: 78
+            }
+          })
+        ),
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 80
+            }
+          },
+          this.renderButton()
+        ),
+        _react3.default.createElement(
+          _ortak.CardSection,
+          {
+            __source: {
+              fileName: _jsxFileName,
+              lineNumber: 83
+            }
+          },
+          this.renderDeleteButton()
+        )
+      );
+    }
+  }]);
+
+  return StudentUpdate;
+}(_react2.Component));
+
+var styles = {
+  inputStyle: {
+    paddingRight: 5,
+    paddingLeft: 5,
+    fontSize: 18,
+    flex: 1
+  }
+};
+
+var mapToStateProps = function mapToStateProps(_ref2) {
+  var studentUpdateReducers = _ref2.studentUpdateReducers;
+  var loadingUpdate = studentUpdateReducers.loadingUpdate,
+      loadingDelete = studentUpdateReducers.loadingDelete;
+
+
+  return { loadingUpdate: loadingUpdate, loadingDelete: loadingDelete };
+};
+
+exports.default = (0, _reactRedux.connect)(mapToStateProps, { studentChange: _actions.studentChange,
+  studentUpdate: _actions.studentUpdate,
+  studentDelete: _actions.studentDelete })(StudentUpdate);

@@ -1,0 +1,75 @@
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.loginUser = exports.passwordChanged = exports.emailChanged = undefined;
+
+var _reactNative = require('react-native');
+
+var _reactNativeRouterFlux = require('react-native-router-flux');
+
+var _firebase = require('firebase');
+
+var _firebase2 = _interopRequireDefault(_firebase);
+
+var _types = require('./types');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var emailChanged = exports.emailChanged = function emailChanged(email) {
+  return function (dispatch) {
+    dispatch({
+      type: _types.EMAIL_CHANGED,
+      payload: email
+    });
+  };
+};
+
+var passwordChanged = exports.passwordChanged = function passwordChanged(password) {
+  return function (dispatch) {
+    dispatch({
+      type: _types.PASSWORD_CHANGED,
+      payload: password
+    });
+  };
+};
+
+var loginUser = exports.loginUser = function loginUser(_ref) {
+  var email = _ref.email,
+      password = _ref.password;
+
+  return function (dispatch) {
+    dispatch({ type: _types.LOGIN_USER });
+    if (email === ' ' || password === ' ') {
+      _reactNative.Alert.alert('Mesaj', 'Kullanıcı adı veya şifre girmediniz.', [{ text: 'Tamam', onPress: function onPress() {
+          return null;
+        } }]);
+    } else {
+      _firebase2.default.auth().signInWithEmailAndPassword(email, password).then(function (user) {
+        return loginSucces(dispatch, user);
+      }).catch(function () {
+        _firebase2.default.auth().createUserWithEmailAndPassword(email, password).then(function (user) {
+          return loginSucces(dispatch, user);
+        }).catch(function () {
+          return loginFail();
+        });
+      });
+    }
+  };
+};
+
+var loginFail = function loginFail(dispatch) {
+  _reactNative.Alert.alert('Mesaj', 'Kullanıcı adı veya şifre girmediniz.', [{ text: 'Tamam', onPress: function onPress() {
+      return null;
+    } }]);
+  dispatch({
+    type: _types.LOGIN_USER_FAIL
+  });
+};
+
+var loginSucces = function loginSucces(dispatch, user) {
+  dispatch({
+    type: _types.LOGIN_USER_SUCCESS,
+    payload: user
+  });
+  _reactNativeRouterFlux.Actions.studentList();
+};
